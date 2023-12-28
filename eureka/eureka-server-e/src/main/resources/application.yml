@@ -1,0 +1,13 @@
+server:
+  port: 8766
+spring:
+  application:
+    name: eureka-server
+eureka:
+  client:
+    service-url:
+      defaultZone: http://peer1:8761/eureka,http://peer5:8765/eureka,http://peer6:8766/eureka
+  instance:
+    hostname: peer6
+    instance-id: ${eureka.instance.hostname}:${spring.application.name}:${server.port}
+    prefer-ip-address: true
